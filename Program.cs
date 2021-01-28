@@ -19,7 +19,7 @@ namespace CSharpClientGeneratorNamespace
                 ClientBaseInterface = "IApplicationService",
                 GenerateClientClasses = true,
                 GenerateClientInterfaces = true,
-                GenerateDtoTypes = false,
+                GenerateDtoTypes = true,
                 CSharpGeneratorSettings =
                 {
                     Namespace = "ContentManagement.Content"
@@ -28,20 +28,20 @@ namespace CSharpClientGeneratorNamespace
             GenerateCodeInterfaceAndService(serviceSettings, "ContentAppService.cs");
 
 
-            var serviceSettingsDtos = new CSharpClientGeneratorSettings
-            {
-                ClassName = "ContentAppServiceDto",
-                ClientBaseClass = "",
-                ClientBaseInterface = "",
-                GenerateClientClasses = false,
-                GenerateClientInterfaces = false,
-                GenerateDtoTypes = true,
-                CSharpGeneratorSettings =
-                {
-                    Namespace = "ContentManagement.Content"
-                }
-            };
-            GenerateCode(serviceSettingsDtos, "ContentAppServiceDto.cs");
+            //var serviceSettingsDtos = new CSharpClientGeneratorSettings
+            //{
+            //    ClassName = "ContentAppServiceDto",
+            //    ClientBaseClass = "",
+            //    ClientBaseInterface = "",
+            //    GenerateClientClasses = false,
+            //    GenerateClientInterfaces = false,
+            //    GenerateDtoTypes = true,
+            //    CSharpGeneratorSettings =
+            //    {
+            //        Namespace = "ContentManagement.Content"
+            //    }
+            //};
+            //GenerateCode(serviceSettingsDtos, "ContentAppServiceDto.cs");
         }
 
         public static async void GenerateCodeInterfaceAndService(CSharpClientGeneratorSettings settings, string serviceName)
@@ -58,16 +58,21 @@ namespace CSharpClientGeneratorNamespace
             string allCode = generator.GenerateFile();
 
             int indexSplitInterfaceAndApp = IndexOfOccurence(allCode, "[System.CodeDom.Compiler.GeneratedCode(\"NSwag\", \"13.10.1.0 (NJsonSchema v10.3.3.0 (Newtonsoft.Json v12.0.0.0))\")]", 2);
-            //int indexSplitDto = IndexOfOccurence(allCode, "[System.CodeDom.Compiler.GeneratedCode(\"NJsonSchema\"", 1);
+            int indexSplitDto = IndexOfOccurence(allCode, "[System.CodeDom.Compiler.GeneratedCode(\"NJsonSchema\"", 1);
 
+            string nameSpace = "namespace ContentManagement.Content {\n";
 
             //Interface Service
-            string interfaceCode = allCode.Remove(indexSplitInterfaceAndApp);
+            string interfaceCode = allCode.Remove(indexSplitInterfaceAndApp) + "}";
             File.WriteAllText(baseLocation + "I" + serviceName, interfaceCode);
 
             //ServiceCode
-            string serviceCode = allCode.Substring(indexSplitInterfaceAndApp);
+            int length = indexSplitDto - indexSplitInterfaceAndApp;
+            string serviceCode = nameSpace + allCode.Substring(indexSplitInterfaceAndApp, length) + "}";
             File.WriteAllText(baseLocation + serviceName, serviceCode);
+
+            string dtoCode = nameSpace +  allCode.Substring(indexSplitDto);
+            File.WriteAllText(baseLocation + "Dto" + serviceName, dtoCode);
 
         }
 
