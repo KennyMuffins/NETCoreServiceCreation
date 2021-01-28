@@ -1,0 +1,11 @@
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\bin\Debug\netcoreapp2.1\CSharpClientGenerator.deps.json
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\bin\Debug\netcoreapp2.1\CSharpClientGenerator.runtimeconfig.json
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\bin\Debug\netcoreapp2.1\CSharpClientGenerator.runtimeconfig.dev.json
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\bin\Debug\netcoreapp2.1\CSharpClientGenerator.dll
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\obj\Debug\netcoreapp2.1\CSharpClientGenerator.csprojAssemblyReference.cache
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\obj\Debug\netcoreapp2.1\CSharpClientGenerator.csproj.CoreCompileInputs.cache
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\obj\Debug\netcoreapp2.1\CSharpClientGenerator.AssemblyInfoInputs.cache
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\obj\Debug\netcoreapp2.1\CSharpClientGenerator.AssemblyInfo.cs
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\bin\Debug\netcoreapp2.1\CSharpClientGenerator.pdb
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\obj\Debug\netcoreapp2.1\CSharpClientGenerator.dll
+C:\Users\dfuser\source\repos\CSharpClientGenerator\CSharpClientGenerator\obj\Debug\netcoreapp2.1\CSharpClientGenerator.pdb
